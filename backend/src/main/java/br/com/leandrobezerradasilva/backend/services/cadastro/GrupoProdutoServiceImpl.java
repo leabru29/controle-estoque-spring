@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.leandrobezerradasilva.backend.models.cadastro.GrupoProduto;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.GrupoProdutoRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.GrupoProdutoService;
 
+@Service
 public class GrupoProdutoServiceImpl implements GrupoProdutoService {
 
     @Autowired
