@@ -54,6 +54,9 @@ public class Fornecedor {
     @Column(length = 15, nullable = false)
     private Long whatsapp;
 
+    @Column(length = 9, nullable = false)
+    private Long cep;
+
     @Column(length = 80, nullable = false)
     private String logradouro;
 
@@ -62,8 +65,8 @@ public class Fornecedor {
 
     private String complemento;
 
-    @Column(length = 9, nullable = false)
-    private Long cep;
+    @Column(length = 100, nullable = false)
+    private String bairro;
 
     @Column(length = 50, nullable = false)
     private String cidade;
