@@ -31,7 +31,7 @@ public class GrupoProdutoServiceImpl implements GrupoProdutoService {
     public GrupoProduto findById(Long id) {
         Optional<GrupoProduto> grupoProduOptional = grupoProdutoRepository.findById(id);
         return grupoProduOptional
-                .orElseThrow(() -> new EntidadeNaoEncontradaException("Não foi encontrado nenhum grupo."));
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Não foi encontrado nenhum Grupo com Id: " + id));
     }
 
     @Override
