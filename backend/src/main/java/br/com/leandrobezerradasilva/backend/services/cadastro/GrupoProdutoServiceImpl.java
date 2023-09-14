@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.GrupoProduto;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.GrupoProdutoRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.GrupoProdutoService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class GrupoProdutoServiceImpl implements GrupoProdutoService {
@@ -29,7 +30,8 @@ public class GrupoProdutoServiceImpl implements GrupoProdutoService {
     @Override
     public GrupoProduto findById(Long id) {
         Optional<GrupoProduto> grupoProduOptional = grupoProdutoRepository.findById(id);
-        return grupoProduOptional.get();
+        return grupoProduOptional
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Não foi encontrado nenhum grupo."));
     }
 
     @Override
