@@ -41,23 +41,23 @@ public class FornecedorServiceImpl implements FornecedorService {
 
         Fornecedor fornecedorEncontrado = findById(fornecedor.getId());
 
-        fornecedorEncontrado.setNome(fornecedorEncontrado.getNome());
-        fornecedorEncontrado.setRazao_social(fornecedorEncontrado.getRazao_social());
-        fornecedorEncontrado.setNumero_documento(fornecedorEncontrado.getNumero_documento());
-        fornecedorEncontrado.setTelefone(fornecedorEncontrado.getTelefone());
-        fornecedorEncontrado.setTelefone2(fornecedorEncontrado.getTelefone2());
-        fornecedorEncontrado.setCeluar(fornecedorEncontrado.getCeluar());
-        fornecedorEncontrado.setWhatsapp(fornecedorEncontrado.getWhatsapp());
-        fornecedorEncontrado.setEmail(fornecedorEncontrado.getEmail());
-        fornecedorEncontrado.setEmail2(fornecedorEncontrado.getEmail2());
-        fornecedorEncontrado.setCep(fornecedorEncontrado.getCep());
-        fornecedorEncontrado.setLogradouro(fornecedorEncontrado.getLogradouro());
-        fornecedorEncontrado.setNumero(fornecedorEncontrado.getNumero());
-        fornecedorEncontrado.setComplemento(fornecedorEncontrado.getComplemento());
-        fornecedorEncontrado.setBairro(fornecedorEncontrado.getBairro());
-        fornecedorEncontrado.setCidade(fornecedorEncontrado.getCidade());
-        fornecedorEncontrado.setEstado(fornecedorEncontrado.getEstado());
-        fornecedorEncontrado.setPais(fornecedorEncontrado.getPais());
+        fornecedorEncontrado.setNome(fornecedor.getNome());
+        fornecedorEncontrado.setRazao_social(fornecedor.getRazao_social());
+        fornecedorEncontrado.setNumero_documento(fornecedor.getNumero_documento());
+        fornecedorEncontrado.setTelefone(fornecedor.getTelefone());
+        fornecedorEncontrado.setTelefone2(fornecedor.getTelefone2());
+        fornecedorEncontrado.setCeluar(fornecedor.getCeluar());
+        fornecedorEncontrado.setWhatsapp(fornecedor.getWhatsapp());
+        fornecedorEncontrado.setEmail(fornecedor.getEmail());
+        fornecedorEncontrado.setEmail2(fornecedor.getEmail2());
+        fornecedorEncontrado.setCep(fornecedor.getCep());
+        fornecedorEncontrado.setLogradouro(fornecedor.getLogradouro());
+        fornecedorEncontrado.setNumero(fornecedor.getNumero());
+        fornecedorEncontrado.setComplemento(fornecedor.getComplemento());
+        fornecedorEncontrado.setBairro(fornecedor.getBairro());
+        fornecedorEncontrado.setCidade(fornecedor.getCidade());
+        fornecedorEncontrado.setEstado(fornecedor.getEstado());
+        fornecedorEncontrado.setPais(fornecedor.getPais());
 
         Fornecedor fornecedorAtualizado = fornecedorRepository.save(fornecedorEncontrado);
 
