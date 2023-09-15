@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.Fornecedor;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.FornecedorRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.FornecedorService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -33,7 +34,7 @@ public class FornecedorServiceImpl implements FornecedorService {
     public Fornecedor findById(UUID id) {
 
         Optional<Fornecedor> fornecedor = fornecedorRepository.findById(id);
-        return fornecedor.get();
+        return fornecedor.orElseThrow(() -> new EntidadeNaoEncontradaException("Fornecedor não encontrado."));
     }
 
     @Transactional
