@@ -48,7 +48,7 @@ public class GrupoProdutoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<GrupoProduto> atualizarGrupoProduto(@PathVariable Long id,
-            @RequestBody GrupoProduto grupoProduto) {
+            @Valid @RequestBody GrupoProduto grupoProduto) {
         grupoProduto.setId(id);
         GrupoProduto grupoProdutoAtualizado = grupoProdutoServiceImpl.update(grupoProduto);
         return new ResponseEntity<GrupoProduto>(grupoProdutoAtualizado, HttpStatus.OK);
