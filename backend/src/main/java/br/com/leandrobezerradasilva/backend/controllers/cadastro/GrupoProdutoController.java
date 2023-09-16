@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.leandrobezerradasilva.backend.models.cadastro.GrupoProduto;
 import br.com.leandrobezerradasilva.backend.services.cadastro.GrupoProdutoServiceImpl;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/grupo-produto")
@@ -25,7 +26,7 @@ public class GrupoProdutoController {
     private GrupoProdutoServiceImpl grupoProdutoServiceImpl;
 
     @PostMapping
-    public ResponseEntity<GrupoProduto> salvar(@RequestBody GrupoProduto grupoProduto) {
+    public ResponseEntity<GrupoProduto> salvar(@Valid @RequestBody GrupoProduto grupoProduto) {
         GrupoProduto grupoProdutoSalvo = grupoProdutoServiceImpl.save(grupoProduto);
         return new ResponseEntity<>(grupoProdutoSalvo, HttpStatus.CREATED);
     }
