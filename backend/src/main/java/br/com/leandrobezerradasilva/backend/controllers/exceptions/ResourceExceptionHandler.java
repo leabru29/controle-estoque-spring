@@ -52,7 +52,7 @@ public class ResourceExceptionHandler {
         PadraoMsgErro erro = new PadraoMsgErro();
         erro.setTimestamp(Instant.now());
         erro.setStatus(HttpStatus.CONFLICT.value());
-        erro.setError("Registro duplicado.");
+        erro.setError("Problemas ao inserir os dados.");
         erro.setMessage("Verifique se os dados estão corretos e se o campo não está repetido.");
         erro.setPath(request.getRequestURI());
 
