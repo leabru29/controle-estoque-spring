@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.leandrobezerradasilva.backend.models.cadastro.Fornecedor;
 import br.com.leandrobezerradasilva.backend.services.cadastro.FornecedorServiceImpl;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "fornecedor")
@@ -26,7 +27,7 @@ public class FornecedorController {
     private FornecedorServiceImpl fornecedorServiceImpl;
 
     @PostMapping
-    public ResponseEntity<Fornecedor> salvarFornecedor(@RequestBody Fornecedor fornecedor) {
+    public ResponseEntity<Fornecedor> salvarFornecedor(@Valid @RequestBody Fornecedor fornecedor) {
         Fornecedor fornecedorSalvo = fornecedorServiceImpl.save(fornecedor);
         return new ResponseEntity<>(fornecedorSalvo, HttpStatus.OK);
     }
@@ -44,7 +45,8 @@ public class FornecedorController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Fornecedor> atualizarFornecedor(@PathVariable UUID id, @RequestBody Fornecedor fornecedor) {
+    public ResponseEntity<Fornecedor> atualizarFornecedor(@PathVariable UUID id,
+            @Valid @RequestBody Fornecedor fornecedor) {
         fornecedor.setId(id);
         Fornecedor fornecedorAtualizado = fornecedorServiceImpl.update(fornecedor);
         return new ResponseEntity<>(fornecedorAtualizado, HttpStatus.OK);

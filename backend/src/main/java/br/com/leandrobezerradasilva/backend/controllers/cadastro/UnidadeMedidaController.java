@@ -45,7 +45,7 @@ public class UnidadeMedidaController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<UnidadeMedida> atualizarUnidadeMedida(@PathVariable Long id,
-            @RequestBody UnidadeMedida unidadeMedida) {
+            @Valid @RequestBody UnidadeMedida unidadeMedida) {
         unidadeMedida.setId(id);
         UnidadeMedida unidadeMedidaAtualizada = unidadeMedidaServiceImpl.update(unidadeMedida);
         return new ResponseEntity<>(unidadeMedidaAtualizada, HttpStatus.OK);
