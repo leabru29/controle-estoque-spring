@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.leandrobezerradasilva.backend.models.cadastro.LocalArmazenamento;
@@ -13,6 +14,7 @@ import br.com.leandrobezerradasilva.backend.services.contracts.LocalArmazenament
 @Service
 public class LocalArmazenamentoServiceImpl implements LocalArmazenamentoService {
 
+    @Autowired
     private LocalArmazenamentoRepository localArmazenamentoRepository;
 
     @Override
