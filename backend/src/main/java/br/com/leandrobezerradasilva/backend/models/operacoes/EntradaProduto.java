@@ -34,7 +34,7 @@ public class EntradaProduto {
     @JoinColumn(name = "id_produto", nullable = false)
     private Produto produto;
 
-    @Column(length = 4)
+    @Column(length = 4, nullable = false)
     private Integer quantidade;
 
     @Column(name = "dt_ent", nullable = false)

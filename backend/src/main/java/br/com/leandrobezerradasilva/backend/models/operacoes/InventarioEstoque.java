@@ -36,7 +36,7 @@ public class InventarioEstoque {
     @JoinColumn(name = "id_produto", nullable = false)
     private Produto produto;
 
-    @Column(length = 6, name = "quant_inventario")
+    @Column(length = 6, name = "quant_inventario", nullable = false)
     private Integer quantidade_inventario;
 
     private String motivo;
