@@ -3,6 +3,7 @@ package br.com.leandrobezerradasilva.backend.services.cadastro;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.leandrobezerradasilva.backend.models.cadastro.MarcaProduto;
@@ -12,6 +13,7 @@ import br.com.leandrobezerradasilva.backend.services.contracts.MarcaProdutoServi
 @Service
 public class MarcaProdutoServiceImpl implements MarcaProdutoService {
 
+    @Autowired
     private MarcaProdutoRepository marcaProdutoRepository;
 
     @Override
