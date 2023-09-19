@@ -44,7 +44,7 @@ public class FornecedorServiceImpl implements FornecedorService {
 
         fornecedorEncontrado.setNome(fornecedor.getNome());
         fornecedorEncontrado.setRazao_social(fornecedor.getRazao_social());
-        fornecedorEncontrado.setNumero_documento(fornecedor.getNumero_documento());
+        fornecedorEncontrado.setCnpj(fornecedor.getCnpj());
         fornecedorEncontrado.setTelefone(fornecedor.getTelefone());
         fornecedorEncontrado.setTelefone2(fornecedor.getTelefone2());
         fornecedorEncontrado.setCeluar(fornecedor.getCeluar());

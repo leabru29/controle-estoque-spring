@@ -34,7 +34,7 @@ public class Fornecedor {
     private String razao_social;
 
     @Column(length = 15, nullable = false, unique = true)
-    private Long numero_documento;
+    private Long cnpj;
 
     @Column(nullable = false)
     private String email;
