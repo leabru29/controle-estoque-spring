@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.MarcaProduto;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.MarcaProdutoRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.MarcaProdutoService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class MarcaProdutoServiceImpl implements MarcaProdutoService {
@@ -29,7 +30,8 @@ public class MarcaProdutoServiceImpl implements MarcaProdutoService {
     @Override
     public MarcaProduto findById(Long id) {
         Optional<MarcaProduto> marcaProduto = marcaProdutoRepository.findById(id);
-        return marcaProduto.get();
+        return marcaProduto.orElseThrow(
+                () -> new EntidadeNaoEncontradaException("Marca de Produto não encontrada com o Id: " + id));
     }
 
     @Override

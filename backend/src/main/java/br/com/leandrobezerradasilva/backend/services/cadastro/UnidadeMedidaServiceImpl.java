@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.UnidadeMedida;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.UnidadeMedidaRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.UnidadeMedidaService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class UnidadeMedidaServiceImpl implements UnidadeMedidaService {
@@ -29,7 +30,8 @@ public class UnidadeMedidaServiceImpl implements UnidadeMedidaService {
     @Override
     public UnidadeMedida findById(Long id) {
         Optional<UnidadeMedida> optionalUnidadeMedida = unidadeMedidaRepository.findById(id);
-        return optionalUnidadeMedida.get();
+        return optionalUnidadeMedida.orElseThrow(
+                () -> new EntidadeNaoEncontradaException("Unidade de Medida não encontrada com o Id: " + id));
     }
 
     @Override

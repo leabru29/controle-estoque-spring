@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.LocalArmazenamento;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.LocalArmazenamentoRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.LocalArmazenamentoService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class LocalArmazenamentoServiceImpl implements LocalArmazenamentoService {
@@ -33,7 +34,8 @@ public class LocalArmazenamentoServiceImpl implements LocalArmazenamentoService 
 
         Optional<LocalArmazenamento> localOptional = localArmazenamentoRepository.findById(id);
 
-        return localOptional.get();
+        return localOptional.orElseThrow(
+                () -> new EntidadeNaoEncontradaException("Local de Armazenamento não encontrado com o Id: " + id));
     }
 
     @Override

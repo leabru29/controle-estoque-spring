@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.leandrobezerradasilva.backend.models.cadastro.Produto;
 import br.com.leandrobezerradasilva.backend.repositories.cadastro.ProdutoRepository;
 import br.com.leandrobezerradasilva.backend.services.contracts.ProdutoService;
+import br.com.leandrobezerradasilva.backend.services.exceptions.EntidadeNaoEncontradaException;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
@@ -28,11 +29,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto findById(Long id) {
-
         Optional<Produto> optionalProduto = produtoRepository.findById(id);
-
-        return optionalProduto.get();
-
+        return optionalProduto
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Produto não encontrado com o Id: " + id));
     }
 
     @Override
