@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.com.leandrobezerradasilva.backend.models.operacoes.EntradaProduto;
 import br.com.leandrobezerradasilva.backend.services.operacoes.EntradaProdutoServiceImpl;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/entrada-produto")
@@ -24,7 +25,7 @@ public class EntradaProdutoController {
     private EntradaProdutoServiceImpl entradaProdutoServiceImpl;
 
     @PostMapping
-    public ResponseEntity<EntradaProduto> salvarEntradaProduto(@RequestBody EntradaProduto entradaProduto) {
+    public ResponseEntity<EntradaProduto> salvarEntradaProduto(@Valid @RequestBody EntradaProduto entradaProduto) {
         EntradaProduto entradaProdutoSalvar = entradaProdutoServiceImpl.save(entradaProduto);
         return new ResponseEntity<EntradaProduto>(entradaProdutoSalvar, HttpStatus.CREATED);
     }
@@ -44,9 +45,9 @@ public class EntradaProdutoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<EntradaProduto> atualizarEntradaProduto(@PathVariable Long id,
-            @RequestBody EntradaProduto data) {
-        EntradaProduto entrada_produto = entradaProdutoServiceImpl.findById(id);
-        EntradaProduto entradaProdutoAtualizada = entradaProdutoServiceImpl.update(entrada_produto);
+            @Valid @RequestBody EntradaProduto entradaProduto) {
+        entradaProduto.setId(id);
+        EntradaProduto entradaProdutoAtualizada = entradaProdutoServiceImpl.update(entradaProduto);
         return new ResponseEntity<>(entradaProdutoAtualizada, HttpStatus.OK);
     }
 
